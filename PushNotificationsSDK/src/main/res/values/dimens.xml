@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="notification_root_padding">8dp</dimen>
+    <dimen name="subheading_template_image_height">190dp</dimen>
+    <dimen name="collapsed_state_image_size">100dp</dimen>
+</resources>

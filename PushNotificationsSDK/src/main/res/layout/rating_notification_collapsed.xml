@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginHorizontal="@dimen/notification_root_padding"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Compat.Notification"
+        android:textColor="@color/rating_notification_title"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        tools:ignore="SmallSp"
+        tools:text="This is a sample notification title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:weightSum="5">
+
+        <ImageView
+            android:id="@+id/star1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_rating_star_outline" />
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_rating_star_outline" />
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_rating_star_outline" />
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_rating_star_outline" />
+
+        <ImageView
+            android:id="@+id/star5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_rating_star_outline" />
+
+    </LinearLayout>
+
+</RelativeLayout>

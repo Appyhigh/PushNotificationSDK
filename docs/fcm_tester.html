@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Send FCM Push Notification</title>
+    <style>
+
+        h1 {
+            font-size: 24px;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="color"] {
+            padding: 0px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .color-picker {
+            margin: 0 5px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .notification-type {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .radio-group label {
+            display: inline-block;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #apiResponse {
+            background-color: #ffffff;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<form id="pushNotificationForm" onsubmit="return sendPushNotification(event)">
+    <div class="form-group">
+        <label for="authorizationKey">Authorization Key:</label>
+        <input type="text" id="authorizationKey" name="authorizationKey" required>
+
+        <label for="fcmToken">FCM Token:</label>
+        <input type="text" id="fcmToken" name="fcmToken" required>
+    </div>
+
+    <div class="form-group">
+        <label for="notificationTitle">Title:</label>
+        <input type="text" id="notificationTitle" name="notificationTitle" required>
+
+        <label for="notificationMessage">Message:</label>
+        <textarea id="notificationMessage" name="notificationMessage" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="notificationImage">Image URL:</label>
+        <input type="text" id="notificationImage" name="notificationImage">
+
+        <label for="notificationLink">Link:</label>
+        <input type="text" id="notificationLink" name="notificationLink">
+    </div>
+
+    <div class="form-group">
+        <label for="notificationType">Notification Type:</label>
+        <select id="notificationType" name="notificationType" class="notification-type" required>
+            <option value="Basic" selected>Basic Notification</option>
+            <option value="Rating">Rating Notification</option>
+            <option value="ZeroBezel">ZeroBezel Notification</option>
+            <option value="OneBezel">OneBezel Notification</option>
+            <option value="Heading">Heading Notification</option>
+            <option value="SubHeading">SubHeading Notification</option>
+            <option value="SmallCard">SmallCard Notification</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Which:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="which" value="P" required> P</label>
+            <label><input type="radio" name="which" value="L"> L</label>
+            <label><input type="radio" name="which" value="D"> D</label>
+            <label><input type="radio" name="which" value="B" checked> B</label>
+            <label><input type="radio" name="which" value="A"> A</label>
+        </div>
+    </div>
+
+    <div class="form-group color-picker-container">
+        <label for="titleColor">Title Color:</label>
+        <input type="color" id="titleColor" name="titleColor" class="color-picker">
+
+        <label for="messageColor">Message Color:</label>
+        <input type="color" id="messageColor" name="messageColor" class="color-picker">
+    </div>
+
+    <div class="form-group color-picker-container">
+        <label for="metaColor">Meta Color:</label>
+        <input type="color" id="metaColor" name="metaColor" class="color-picker">
+
+        <label for="bgColor">Background Color:</label>
+        <input type="color" id="bgColor" name="bgColor" class="color-picker" value="#FFFFFF">
+    </div>
+
+    <div>
+        <button type="submit">Send Notification</button>
+    </div>
+    <div id="apiResponse">
+        <!-- API response will be displayed here -->
+    </div>
+</form>
+<script>
+    function validateForm() {
+        const authorizationKey = document.getElementById("authorizationKey").value;
+        const fcmToken = document.getElementById("fcmToken").value;
+        const notificationTitle = document.getElementById("notificationTitle").value;
+        const notificationMessage = document.getElementById("notificationMessage").value;
+        const notificationType = document.getElementById("notificationType").value;
+        const which = document.querySelector('input[name="which"]:checked');
+
+        if (!authorizationKey || !fcmToken || !notificationTitle || !notificationMessage || !notificationType || !which) {
+            alert("Please fill in all required fields.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function sendPushNotification(event) {
+        event.preventDefault();
+        if (validateForm()) {
+            const authorizationKey = document.getElementById("authorizationKey").value;
+            const fcmToken = document.getElementById("fcmToken").value;
+            const notificationTitle = document.getElementById("notificationTitle").value;
+            const notificationMessage = document.getElementById("notificationMessage").value;
+            const notificationImage = document.getElementById("notificationImage").value;
+            const notificationLink = document.getElementById("notificationLink").value;
+            const notificationType = document.getElementById("notificationType").value;
+            const which = document.querySelector('input[name="which"]:checked').value;
+            const titleColor = document.getElementById("titleColor").value;
+            const messageColor = document.getElementById("messageColor").value;
+            const metaColor = document.getElementById("metaColor").value;
+            const bgColor = document.getElementById("bgColor").value;
+
+            const payload = {
+                registration_ids: [fcmToken],
+                data: {
+                    title: notificationTitle,
+                    message: notificationMessage,
+                    image: notificationImage,
+                    link: notificationLink,
+                    titleColor: titleColor,
+                    messageColor: messageColor,
+                    metaColor: metaColor,
+                    bgColor: bgColor,
+                    notificationType: notificationType,
+                    which: which,
+                }
+            };
+
+            fetch('https://fcm.googleapis.com/fcm/send', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'key=' + authorizationKey,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+            })
+                .then(response => {
+                    response.json()
+                    .then(data => {
+                        console.log('Notification sent successfully:', data);
+                        const apiResponseDiv = document.getElementById('apiResponse');
+                        apiResponseDiv.innerHTML = `<p>${JSON.stringify(data)}</p>`;
+                    })
+                    .catch(error => {
+                        const apiResponseDiv = document.getElementById('apiResponse');
+                        apiResponseDiv.innerHTML = `<p>${'Error sending notification: ' + error}</p>`;
+                        console.error('Error sending notification:', error);
+                    });
+                });
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TestNotificationsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvColorHeading"
+            style="@style/SectionHeadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Change Colors"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/colorHeading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/colorHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000000"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="Title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/colorMeta"
+            app:layout_constraintEnd_toStartOf="@+id/colorSubHeading"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvColorHeading"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/colorSubHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="#000000"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="Message"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/colorHeading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/colorHeading"
+            app:layout_constraintTop_toTopOf="@id/colorHeading"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/colorMeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="#000000"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="Meta"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/tvHeading"
+            app:layout_constraintEnd_toStartOf="@+id/colorBg"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorHeading"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/colorBg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="Background"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/colorMeta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/colorMeta"
+            app:layout_constraintTop_toTopOf="@id/colorMeta"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tvHeading"
+            style="@style/SectionHeadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Action Type"
+            app:layout_constraintBottom_toTopOf="@+id/radioActionType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/colorMeta"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <RadioGroup
+            android:id="@+id/radioActionType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/etDeepLink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <RadioButton
+                android:id="@+id/actionP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="P"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/actionB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="B"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/actionL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="L"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/actionD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="D"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etDeepLink"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="DeepLink Value"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/etCouponCode"
+            app:layout_constraintEnd_toEndOf="@+id/radioActionType"
+            app:layout_constraintStart_toStartOf="@+id/radioActionType"
+            app:layout_constraintTop_toBottomOf="@id/radioActionType"
+            tools:ignore="HardcodedText"
+            tools:visibility="visible" />
+
+        <EditText
+            android:id="@+id/etCouponCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Coupon Code"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@id/cbAddLongText"
+            app:layout_constraintEnd_toEndOf="@+id/radioActionType"
+            app:layout_constraintStart_toStartOf="@+id/radioActionType"
+            app:layout_constraintTop_toBottomOf="@id/etDeepLink"
+            tools:ignore="HardcodedText" />
+
+        <CheckBox
+            android:id="@+id/cbAddLongText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Add Long Text (like emails)"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/tvTypeHeading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etCouponCode"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/tvTypeHeading"
+            style="@style/SectionHeadings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Notification Data\n(Tap for text inputs)"
+            app:layout_constraintBottom_toTopOf="@+id/radioNotificationType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAddLongText"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <RadioGroup
+            android:id="@+id/radioNotificationType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSendPush"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTypeHeading"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <RadioButton
+                android:id="@+id/basicNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Basic Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/ratingNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Rating Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/zeroBezelNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ZeroBezel Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/oneBezelNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OneBezel Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/headingNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heading Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/subHeadingNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SubHeading Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <RadioButton
+                android:id="@+id/smallCardNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SmallCard Notification"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:hint="Title (blank for default)"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintBottom_toTopOf="@id/etMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioNotificationType" />
+
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:hint="Message (blank for default)"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintBottom_toTopOf="@id/etImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etTitle" />
+
+        <EditText
+            android:id="@+id/etImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:hint="Image URL (blank for default)"
+            android:inputType="textUri"
+            android:maxLines="1"
+            app:layout_constraintBottom_toTopOf="@id/btnSendPush"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etMessage" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupInputs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="etTitle,etMessage,etImage" />
+
+        <Button
+            android:id="@+id/btnSendPush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Local Push"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/btnSendFCMPush"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etImage"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnSendFCMPush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send API Push"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSendPush"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

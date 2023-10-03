@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/big_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:visibility="gone"
+        tools:src="@tools:sample/backgrounds/scenic"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@id/big_image"
+        android:layout_alignBottom="@+id/big_image"
+        android:background="@drawable/scrim"
+        android:importantForAccessibility="no" />
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="15sp"
+        android:layout_height="15sp"
+        android:layout_above="@id/title"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:importantForAccessibility="no"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/app_icon"
+        android:layout_toEndOf="@id/app_icon"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        tools:text="PushNotification SDK" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/msg"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingHorizontal="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Title of the notification goes here. This is a dummy string to check if the UI is correct with long strings or not."
+        tools:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/big_image"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:paddingHorizontal="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        tools:text="Body of the notification goes here. This is a dummy string to check if the UI is correct with long strings or not."
+        tools:textColor="@android:color/white" />
+
+</RelativeLayout>
