@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="notification_title">#FFFFFF</color>
+    <color name="rating_notification_title">#FFFFFF</color>
+    <color name="notification_desc">#C0C0C0</color>
+</resources>

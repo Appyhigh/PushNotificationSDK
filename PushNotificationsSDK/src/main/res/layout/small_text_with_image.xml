@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_margin="5dp"
+        android:importantForAccessibility="no"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/app_icon"
+        android:layout_alignBottom="@id/app_icon"
+        android:layout_toEndOf="@+id/app_icon"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/notification_title"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="PushNotification SDK" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_icon"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@id/big_image"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+        android:textColor="@color/notification_title"
+        tools:text="This is a sample notification title" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_alignStart="@id/title"
+        android:layout_alignLeft="@id/title"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@id/big_image"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="4"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Info"
+        android:textColor="@color/notification_title"
+        tools:text="Description of the notification goes here. Anything you send in the body or message wil be displayed like this" />
+
+    <ImageView
+        android:id="@+id/big_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/avatars" />
+
+</RelativeLayout>
